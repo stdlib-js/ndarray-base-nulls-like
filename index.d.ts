@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,39 +16,46 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@esm/index.d.ts"/>
+
+import { genericndarray } from '@stdlib/types/ndarray';
 
 /**
-* Create a null-filled ndarray having the same shape and data type as a provided ndarray.
+* Creates a null-filled array having the same shape and data type as a provided input ndarray.
 *
-* @module @stdlib/ndarray-base-nulls-like
+* @param x - input array
+* @returns null-filled array
 *
 * @example
 * var getShape = require( '@stdlib/ndarray-shape' );
 * var getDType = require( '@stdlib/ndarray-dtype' );
 * var empty = require( '@stdlib/ndarray-empty' );
-* var nullsLike = require( '@stdlib/ndarray-base-nulls-like' );
 *
 * var x = empty( [ 2, 2 ], {
 *     'dtype': 'generic'
 * });
 * // returns <ndarray>
 *
+* var sh = getShape( x );
+* // returns [ 2, 2 ]
+*
+* var dt = String( getDType( x ) );
+* // returns 'generic'
+*
 * var y = nullsLike( x );
 * // returns <ndarray>[ [ null, null ], [ null, null ] ]
 *
-* var sh = getShape( y );
+* sh = getShape( y );
 * // returns [ 2, 2 ]
 *
-* var dt = String( getDType( y ) );
+* dt = String( getDType( y ) );
 * // returns 'generic'
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function nullsLike( x: genericndarray<unknown> ): genericndarray<null>;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = nullsLike;
